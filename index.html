@@ -5,66 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elgato Stream Deck MK2</title>
     <style>
-        /* Основной стиль страницы */
+        /* Общие стили */
         body {
             font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00b4d8, #0096c7);
+            color: #fff;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             text-align: center;
         }
 
-        /* Контейнер для контента */
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Заголовок */
-        h1 {
-            font-size: 36px;
+            max-width: 900px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            text-align: center;
             color: #333;
-            margin-top: 20px;
+            position: relative;
         }
 
-        /* Подпись */
+        h1 {
+            font-size: 40px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
         p {
             font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.6;
             color: #666;
-            margin: 10px 0;
         }
 
-        /* Стили для изображения */
         img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            max-width: 600px;
             border-radius: 10px;
             margin-top: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        /* Подвал страницы */
-        footer {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #888;
+        img:hover {
+            transform: scale(1.05);
         }
+
+        /* Стиль кнопок */
+        .button-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            background-color: #00b4d8;
+            color: #fff;
+            padding: 20px 40px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0096c7;
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        /* Стили для разделов */
+        .section {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f1f1f1;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            color: #333;
+        }
+
+        .section h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Elgato Stream Deck MK2</h1>
-        <p>Удобное устройство, которое помогает сэкономить время и упростить выполнение задач, от открытия приложений до управления потоками информации.</p>
-        
-        <!-- Картинка с заданной ссылки -->
+        <p>Современный инструмент, который помогает упростить выполнение задач на ПК, повышая эффективность и удобство работы.</p>
+
         <img src="https://raw.githubusercontent.com/Skv1Zy-cyber/elgatostreamdeckdkjenfneme/main/IMG_7744.png" alt="Elgato Stream Deck MK2">
-        
+
+        <div class="button-container">
+            <!-- Кнопки с разделами -->
+            <button class="button" onclick="showSection('streaming')">Управление стримом</button>
+            <button class="button" onclick="showSection('gaming')">Игры</button>
+            <button class="button" onclick="showSection('productivity')">Обычные действия</button>
+        </div>
+
+        <!-- Разделы для каждой кнопки -->
+        <div id="streaming" class="section">
+            <h2>Плюсы для управления стримом</h2>
+            <p>Stream Deck упрощает управление стримами: переключение сцен, включение/выключение микрофона, управление чатом, а также настройка горячих клавиш для быстрого доступа к любимым функциям.</p>
+        </div>
+
+        <div id="gaming" class="section">
+            <h2>Плюсы для игр</h2>
+            <p>С помощью Stream Deck можно настроить кнопки для быстрого выполнения игровых команд, запуска стримов, записи и использования макросов. Это упрощает игровой процесс, позволяя вам сосредоточиться на самой игре.</p>
+        </div>
+
+        <div id="productivity" class="section">
+            <h2>Плюсы для обычных действий</h2>
+            <p>С устройством можно настроить кнопки для запуска приложений, управления музыкой, регулировки яркости экрана и многих других задач, что помогает ускорить вашу повседневную работу.</p>
+        </div>
+
     </div>
+
+    <script>
+        // Функция для отображения нужного раздела
+        function showSection(section) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.style.display = 'none');  // Скрыть все разделы
+            document.getElementById(section).style.display = 'block';  // Показать выбранный
+        }
+    </script>
 
 </body>
 </html>
