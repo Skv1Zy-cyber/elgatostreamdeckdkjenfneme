@@ -8,7 +8,9 @@
         /* Общие стили */
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #00b4d8, #0096c7);
+            background: url('https://www.transparenttextures.com/patterns/5px-square.png'), linear-gradient(135deg, #00b4d8, #0096c7);
+            background-size: 30px 30px, cover;
+            background-attachment: fixed;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -28,6 +30,7 @@
             text-align: center;
             color: #333;
             position: relative;
+            z-index: 2;
         }
 
         h1 {
@@ -62,6 +65,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
 
         .button {
@@ -74,6 +78,7 @@
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s, transform 0.2s;
+            margin: 10px;
         }
 
         .button:hover {
@@ -107,13 +112,33 @@
             line-height: 1.6;
         }
 
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .button {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Elgato Stream Deck MK2</h1>
-        <p>Современный инструмент, который помогает упростить выполнение задач на ПК, повышая эффективность и удобство работы.</p>
+        <p>Современное устройство, которое упрощает выполнение задач на ПК, ускоряя работу и повышая удобство.</p>
 
         <img src="https://raw.githubusercontent.com/Skv1Zy-cyber/elgatostreamdeckdkjenfneme/main/IMG_7744.png" alt="Elgato Stream Deck MK2">
 
@@ -122,6 +147,8 @@
             <button class="button" onclick="showSection('streaming')">Управление стримом</button>
             <button class="button" onclick="showSection('gaming')">Игры</button>
             <button class="button" onclick="showSection('productivity')">Обычные действия</button>
+            <button class="button" onclick="showSection('automation')">Автоматизация задач</button>
+            <button class="button" onclick="showSection('macros')">Макросы и горячие клавиши</button>
         </div>
 
         <!-- Разделы для каждой кнопки -->
@@ -138,6 +165,16 @@
         <div id="productivity" class="section">
             <h2>Плюсы для обычных действий</h2>
             <p>С устройством можно настроить кнопки для запуска приложений, управления музыкой, регулировки яркости экрана и многих других задач, что помогает ускорить вашу повседневную работу.</p>
+        </div>
+
+        <div id="automation" class="section">
+            <h2>Автоматизация задач</h2>
+            <p>Stream Deck позволяет настроить кнопки для автоматизации повторяющихся задач, таких как выполнение команд, запуск программ или выполнение последовательностей действий в одно нажатие.</p>
+        </div>
+
+        <div id="macros" class="section">
+            <h2>Макросы и горячие клавиши</h2>
+            <p>С помощью Stream Deck можно легко создавать и использовать макросы и горячие клавиши для ускорения работы с приложениями, выполнения сложных последовательностей действий одним нажатием.</p>
         </div>
 
     </div>
