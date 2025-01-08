@@ -8,17 +8,33 @@
         /* Общие стили */
         body {
             font-family: 'Arial', sans-serif;
-            background: url('https://www.transparenttextures.com/patterns/5px-square.png'), linear-gradient(135deg, #00b4d8, #0096c7);
-            background-size: 30px 30px, cover;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #00b4d8, #0096c7);
             color: #fff;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start;
+            height: 100%;
             text-align: center;
+            overflow-y: scroll;
+            background-size: cover;
+        }
+
+        /* Фоновая сетка с цифрами 5 */
+        body::before {
+            content: "5";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 0 15px, transparent 0 30px);
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.2);
+            z-index: -1;
+            font-weight: bold;
+            line-height: 1.5;
         }
 
         .container {
@@ -31,6 +47,8 @@
             color: #333;
             position: relative;
             z-index: 2;
+            margin-top: 40px;
+            margin-bottom: 40px;
         }
 
         h1 {
